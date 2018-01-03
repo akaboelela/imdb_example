@@ -51,6 +51,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_casting" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for actor_id -->
+      <input type="hidden" name="actor_id" value="<%= @actor.id %>">
+
+      <!-- Label and input for movie_id -->
+      <div class="form-group">
+        <label for="movie_id" class="control-label">
+          Movie
+        </label>
+
+        <%= select_tag(:movie_id, options_from_collection_for_select(Movie.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Casting
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -82,6 +105,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_direction" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for director_id -->
+      <div class="form-group">
+        <label for="director_id" class="control-label">
+          Director
+        </label>
+
+        <%= select_tag(:director_id, options_from_collection_for_select(Director.all, :id, :name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for actor_id -->
+      <input type="hidden" name="actor_id" value="<%= @actor.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Direction
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
