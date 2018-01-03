@@ -1,6 +1,7 @@
 class DirectionsController < ApplicationController
   def index
-    @directions = Direction.page(params[:page]).per(10)
+    @q = Direction.ransack(params[:q])
+    @directions = @q.result(:distinct => true).includes(:director, :actor).page(params[:page]).per(10)
 
     render("directions/index.html.erb")
   end
