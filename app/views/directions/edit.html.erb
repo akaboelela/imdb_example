@@ -24,7 +24,7 @@
           Director
         </label>
 
-        <input type="text" id="director_id" name="director_id" placeholder="Director" class="form-control" value="<%= @direction.director_id %>">
+        <%= select_tag(:director_id, options_from_collection_for_select(Director.all, :id, :name, @direction.director_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for actor_id -->
