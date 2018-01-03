@@ -17,7 +17,7 @@
       <% @directions.each do |direction| %>
       <tr>
         <td><%= direction.director.name %></td>
-        <td><%= direction.actor_id %></td>
+        <td><%= direction.actor.name %></td>
         <td>
           <a href="/directions/<%= direction.id %>" class="btn btn-primary">Show</a>
           <a href="/directions/<%= direction.id %>/edit" class="btn btn-warning">Edit</a>
