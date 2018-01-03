@@ -16,8 +16,20 @@
 
       <% @directions.each do |direction| %>
       <tr>
-        <td><%= direction.director.name %></td>
-        <td><%= direction.actor.name %></td>
+        <td>
+          <% if direction.director.present? %>
+            <a href="/directors/<%= direction.director.id %>">
+              <%= direction.director.name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if direction.actor.present? %>
+            <a href="/actors/<%= direction.actor.id %>">
+              <%= direction.actor.name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/directions/<%= direction.id %>" class="btn btn-primary">Show</a>
           <a href="/directions/<%= direction.id %>/edit" class="btn btn-warning">Edit</a>

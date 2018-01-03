@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Director</dt>
-      <dd><%= @direction.director_id %></dd>
+      <dd>
+        <% if @direction.director.present? %>
+          <a href="/directors/<%= @direction.director_id %>">
+            <%= @direction.director.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Actor</dt>
-      <dd><%= @direction.actor_id %></dd>
+      <dd>
+        <% if @direction.actor.present? %>
+          <a href="/actors/<%= @direction.actor_id %>">
+            <%= @direction.actor.name %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 
