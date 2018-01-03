@@ -1,6 +1,6 @@
 class DirectionsController < ApplicationController
   def index
-    @directions = Direction.all
+    @directions = Direction.page(params[:page]).per(10)
 
     render("directions/index.html.erb")
   end
