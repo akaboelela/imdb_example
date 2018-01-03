@@ -47,8 +47,6 @@ class BookmarksController < ApplicationController
 
   def update
     @bookmark = Bookmark.find(params[:id])
-
-    @bookmark.user_id = params[:user_id]
     @bookmark.movie_id = params[:movie_id]
 
     save_status = @bookmark.save
